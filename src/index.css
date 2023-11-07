@@ -1,3 +1,9 @@
+*{
+    margin: 0;
+    padding:0 ;
+    box-sizing: border-box;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -11,3 +17,185 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+*::-webkit-scrollbar{
+    display: none;
+}
+
+.main-container{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 3;
+    backdrop-filter: blur(10px);
+    filter: grayscale(0);
+
+}
+.audio-player {
+    background-color: transparent;
+    display: flex;
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    /* max-width: 800px; */
+    width: 100% !important;
+    z-index: 2;
+}
+
+.inner {
+    width: 100%;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* audio info */
+.audio-info {
+    display: flex;
+    gap: 20px;
+    flex-direction: column;
+    align-items: center ;
+    align-content: center;
+    justify-content: center;
+}
+
+.text {
+    color: white;
+}
+
+.title {
+    color: #fff;
+    font-weight: 100;
+    font-size: 32px;
+    margin-bottom: 0;
+    padding: 2px;
+    line-height: 37px;
+    /* background-color: rgba(0,0,0,.8); */
+}
+
+/* audio image */
+.icon-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.audio-image {
+    width: 300px;
+    height: 300px;
+    background: transparent;
+}
+
+.audio-icon {
+    font-size: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80px;
+    width: 80px;
+    border-radius: 50%;
+    background: rgb(38, 255, 0);
+}
+
+.audio-image img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    vertical-align: middle;
+    border-radius: 15px;
+}
+.audio-info{
+    margin-bottom: 40px;
+}
+.controls-wrapper{
+
+}
+/* controls */
+.controls {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-bottom: 10px;
+
+}
+.controls i{
+    color: white;
+}
+.controls i svg{
+    font-size: 30px;
+
+}
+
+
+.controls button, .volume button {
+    border: none;
+    background-color: transparent;
+    margin-right: 8px;
+    cursor: pointer;
+}
+
+button svg {
+    font-size: 20px;
+}
+
+.volume {
+    margin-top: 10px;
+    width: 20%;
+    float: right;
+    display: flex;
+    align-items: center;
+
+}
+
+.volume button {
+    margin: 0;
+}
+
+.progress {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+}
+input[type="range"] {
+    width: 90%;
+    display: block;
+}
+
+
+/* time */
+.time {
+    color:  rgb(228, 234, 227);
+    font-size: 13px;
+    line-height: 46px;
+}
+
+.time.current {
+    color:  rgb(255, 255, 255);
+}
+
+input[type="range"]{
+    display: grid !important;
+}
+/* Top bar */
+.top__bar {
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    text-align: center;
+    padding-top: .5rem;
+    padding-bottom: .5rem;
+    background-color: #fafafa;
+    border-bottom: 1px solid #f0f0f2;
+}
+
+.top__bar a {
+    color: inherit;
+}
+
+.top__bar p {
+    margin: 0;
+}
+
+

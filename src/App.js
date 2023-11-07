@@ -1,25 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import { LeftMenu } from "./components/LeftMenu/LeftMenu";
+import "./styles/color.css";
+import "./App.css";
+import AudioPlayer from "./components/AudioPlayer";
+import { Routes, Route} from "react-router-dom";
+import Playlist from "./components/PlayList";
+import React from "react";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <>
+            <div className="App">
+                <LeftMenu />
+                <div className="main-container">
+                    <Routes>
+                        <Route path="/" element={<AudioPlayer/>}/>
+                        <Route path="playlist" element={<Playlist/>}></Route>
+                    </Routes>
+                </div>
+            </div>
+            <div className="background"></div>
+        </>
+    );
 }
 
 export default App;

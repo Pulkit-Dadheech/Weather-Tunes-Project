@@ -1,0 +1,23 @@
+:root {
+    --primary-color: grey;
+    --secondary-color: white;
+    --main-background: url(".././img/background.jpg") no-repeat center;
+    /*for changing main background*/
+    /*--main-background: url(".././img/wp12161648-windows-11-white-wallpapers.jpg") no-repeat center;*/
+}
+
+/*left-menu*/
+:root{
+    --left-menu-color: rgba(34,34,34,0.6);
+    --left-menu-search-box-color: rgba(0,0,0,0.5);
+    --main-background-image-filter: grayscale(100);
+    --left-menu-header-color: #f1f1f1;
+
+    /*Menu Section*/
+    --left-menu-menusection: #848484;
+    --left-menu-menusection-hover-effect-color: white;
+    --menu-container-hover-effect-leftslide: white;
+
+    /*Left-corner Section*/
+    --tract-list-span-color: #848484;
+}

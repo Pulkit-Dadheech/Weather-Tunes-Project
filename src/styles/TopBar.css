@@ -1,0 +1,13 @@
+.top-bar{
+    background: transparent;
+    backdrop-filter: blur(40px);
+    padding: 15px;
+    color: white;
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+
+}
+.top-bar-title{
+    padding-bottom: 20px;
+}
