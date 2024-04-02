@@ -6,6 +6,7 @@ import {createBrowserRouter, createRoutesFromElements, Route, RouterProvider} fr
 import Playlist from "./components/PlayList";
 import Login from "./components/Login";
 import {FetchTracksProvider} from "./data/tracks";
+import {SongNameProvider} from "./songContext";
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -21,9 +22,11 @@ const router = createBrowserRouter(
 )
 root.render(
     <React.StrictMode>
-        <FetchTracksProvider>
-            <RouterProvider router={router}/>
-        </FetchTracksProvider>
+        <SongNameProvider>
+            <FetchTracksProvider>
+                <RouterProvider router={router}/>
+            </FetchTracksProvider>
+        </SongNameProvider>
     </React.StrictMode>
 );
 

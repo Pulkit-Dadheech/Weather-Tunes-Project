@@ -1,16 +1,16 @@
 import React, {createContext, useContext, useEffect, useState} from 'react';
 import axios from 'axios';
+import {SongNameContext} from "../songContext";
 
-// Create a context for the fetchTracks functions
 export const FetchTracksContext = createContext();
 
 export const FetchTracksProvider = ({children}) => {
     const [tracks, setTracks] = useState([]);
-    const [songName, setSongName] = useState(() => localStorage.getItem('search') || "bade ache lagte h")
+    const { songName} = useContext(SongNameContext);
 
-    // useEffect(() => {
-    //     setSongName()
-    // }, [songName]);
+    useEffect(() => {
+        fetchTracks(songName);
+    }, [songName]);
     const fetchTracks = async () => {
         const options = {
             method: 'GET',
@@ -21,7 +21,6 @@ export const FetchTracksProvider = ({children}) => {
             const {data} = await axios.request(options);
             console.log(data); // Log the received data for debugging
             console.log("hello");
-            let newTracks = [];
             if (data && data.data && Array.isArray(data.data.results)) {
                 const newTracks = data.data.results.map((song) => {
                     const downloadUrl = song.downloadUrl[4].url || "";

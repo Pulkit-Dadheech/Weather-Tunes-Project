@@ -1,12 +1,12 @@
 import React, {useEffect, useRef, useState} from 'react';
-import {useAudioTracks, useFetchTracks} from './fetchTracks';
+import {useFetchTracks} from './fetchTracks';
 import DisplayTrack from './DisplayTrack';
 import Controls from './Controls';
 import ProgressBar from './ProgressBar';
 import {IoMdVolumeHigh, IoMdVolumeLow, IoMdVolumeOff} from 'react-icons/io';
 
 const AudioPlayer = () => {
-    const {tracks,fetchTracks} = useFetchTracks();
+    const {tracks, fetchTracks} = useFetchTracks();
     console.log(tracks);
     const [trackIndex, setTrackIndex] = useState(0);
     const [currentTrack, setCurrentTrack] = useState(tracks[trackIndex]);
