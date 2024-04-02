@@ -27,15 +27,17 @@ const AudioPlayer = () => {
             setTrackIndex((prev) => prev + 1);
         }
     };
+
     useEffect(() => {
         fetchTracks();
     }, []);
 
     useEffect(() => {
-        if (tracks.length > 0) {
+        if (tracks.length > 0 && trackIndex < tracks.length) {
             setCurrentTrack(tracks[trackIndex]);
         }
     }, [tracks, trackIndex]);
+
 
     return (
         <>

@@ -12,7 +12,6 @@ const DisplayTrack = ({
     progressBarRef.current.max = seconds;
   };
 
-  console.log(currentTrack);
   return (
     <div>
       {currentTrack && (
