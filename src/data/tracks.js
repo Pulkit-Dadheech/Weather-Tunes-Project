@@ -1,30 +1,38 @@
-import axios from "axios"; // Import Axios or another library for making HTTP requests
+import React, {createContext, useContext, useEffect, useState} from 'react';
+import axios from 'axios';
 
-async function getTracks() {
-    try {
-        const song=`yeh shaam mastani`
-        const response = await axios.get(
-            `https://saavn.me/search/songs?query=${song}&page=1&limit=5`
-        );
+// Create a context for the fetchTracks functions
+export const FetchTracksContext = createContext();
 
-        const datas = response.data;
+export const FetchTracksProvider = ({children}) => {
+    const [tracks, setTracks] = useState([]);
+    const [songName,setSongName] = useState(()=>localStorage.getItem('search') || "")
 
-        // Extract information for each song and store it in a variable named 'tracks'
-        const tracks = datas.data.results.map((song) => {
-            return {
-                title: song.name,
-                author: song.primaryArtists,
-                src: song.downloadUrl[4].link, // Song link
-                thumbnail: song.image[2].link, // Accessing the first image quality
-            };
-        });
+    // useEffect(() => {
+    //     setSongName()
+    // }, [songName]);
+    const fetchTracks = async () => {
+        try {
+            const {data} = await axios.get(`http://127.0.0.1:5100/song/?query=${songName}&lyrics=true`);
+            const newTracks = data.map((song) => {
+                return {
+                    title: song.song,
+                    author: song.primary_artists,
+                    src: song.media_url,
+                    thumbnail: song.image,
+                };
+            });
+            setTracks(newTracks);
+        } catch (error) {
+            console.error("Error fetching data:", error);
+            return [];
+        }
+    };
+    return (
+        <FetchTracksContext.Provider value={{tracks, fetchTracks}}>
+            {children}
+        </FetchTracksContext.Provider>
+    );
+};
 
-        return tracks;
-    } catch (error) {
-        // Handle the error
-        console.error("Error fetching data:", error);
-        return [];
-    }
-}
-
-export const tracks = await getTracks();
+// Custom hook to consume the fetchTracks function

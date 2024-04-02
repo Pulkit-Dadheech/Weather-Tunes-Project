@@ -1,6 +1,4 @@
-import { useState, useEffect, useRef, useCallback } from 'react';
-
-// icons
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import {
   IoPlayBackSharp,
   IoPlayForwardSharp,
@@ -11,18 +9,17 @@ import {
 } from 'react-icons/io5';
 
 const Controls = ({
-  audioRef,
-  progressBarRef,
-  duration,
-  setTimeProgress,
-  tracks,
-  trackIndex,
-  setTrackIndex,
-  setCurrentTrack,
-  handleNext,
-}) => {
+                    audioRef,
+                    progressBarRef,
+                    duration,
+                    setTimeProgress,
+                    tracks,
+                    trackIndex,
+                    setTrackIndex,
+                    setCurrentTrack,
+                    handleNext,
+                  }) => {
   const [isPlaying, setIsPlaying] = useState(false);
-
 
   const togglePlayPause = () => {
     setIsPlaying((prev) => !prev);
@@ -45,19 +42,28 @@ const Controls = ({
 
   useEffect(() => {
     if (isPlaying) {
-      audioRef.current.play();
+      if (audioRef.current) {
+        audioRef.current.play();
+        playAnimationRef.current = requestAnimationFrame(repeat);
+      }
     } else {
-      audioRef.current.pause();
+      if (audioRef.current) {
+        audioRef.current.pause();
+        cancelAnimationFrame(playAnimationRef.current);
+      }
     }
-    playAnimationRef.current = requestAnimationFrame(repeat);
   }, [isPlaying, audioRef, repeat]);
 
   const skipForward = () => {
-    audioRef.current.currentTime += 15;
+    if (audioRef.current) {
+      audioRef.current.currentTime += 15;
+    }
   };
 
   const skipBackward = () => {
-    audioRef.current.currentTime -= 15;
+    if (audioRef.current) {
+      audioRef.current.currentTime -= 15;
+    }
   };
 
   const handlePrevious = () => {
@@ -71,10 +77,8 @@ const Controls = ({
     }
   };
 
-
-
   return (
-    <span className="controls-wrapper">
+      <span className="controls-wrapper">
       <div className="controls">
         <button onClick={handlePrevious}>
           <i><IoPlaySkipBackSharp /></i>
@@ -82,12 +86,11 @@ const Controls = ({
         <button onClick={skipBackward}>
           <i><IoPlayBackSharp /></i>
         </button>
-
         <button onClick={togglePlayPause}>
           {isPlaying ? <i><IoPauseSharp /></i> : <i><IoPlaySharp /></i>}
         </button>
         <button onClick={skipForward}>
-        <i><IoPlayForwardSharp /></i>
+          <i><IoPlayForwardSharp /></i>
         </button>
         <button onClick={handleNext}>
           <i><IoPlaySkipForwardSharp /></i>
