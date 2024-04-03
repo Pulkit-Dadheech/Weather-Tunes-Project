@@ -7,15 +7,12 @@ import {IoMdVolumeHigh, IoMdVolumeLow, IoMdVolumeOff} from 'react-icons/io';
 
 const AudioPlayer = () => {
     const {tracks, fetchTracks} = useFetchTracks();
-    console.log(tracks);
     const [trackIndex, setTrackIndex] = useState(0);
     const [currentTrack, setCurrentTrack] = useState(tracks[trackIndex]);
     const [timeProgress, setTimeProgress] = useState(0);
     const [duration, setDuration] = useState(0);
     const [volume, setVolume] = useState(60);
     const [muteVolume, setMuteVolume] = useState(false);
-
-    console.log(currentTrack);
 
     const audioRef = useRef();
     const progressBarRef = useRef();
