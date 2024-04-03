@@ -6,7 +6,7 @@ export const FetchWeatherData = () => {
     const { city, setWeatherData } = useContext(SongNameContext);
     const fetchTracks = async () => {
         try {
-            const { data } = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=8e6bed74c04b5e007c5319a037a08e8e`);
+            const { data } = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${process.env.api_key}`);
             console.log(data);
             setWeatherData(data);
         } catch (error) {
