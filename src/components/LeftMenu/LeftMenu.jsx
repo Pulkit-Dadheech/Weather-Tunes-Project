@@ -6,11 +6,10 @@ import {MenuList} from "./MenuList";
 import {MenuItems} from "./MenuItems";
 import {TrackList} from "./TrackList";
 import {SongNameContext} from "../../songContext";
-import {useFetchTracks} from "../fetchTracks";
 
 function LeftMenu() {
-    const { setSongName } = useContext(SongNameContext);
-    const [search,setSearch] = useState('');
+    const {setSongName} = useContext(SongNameContext);
+    const [search, setSearch] = useState('');
 
     useEffect(() => {
         const delayDebounceFn = setTimeout(() => {
@@ -28,7 +27,7 @@ function LeftMenu() {
             </div>
             <div className="search-box">
                 <i className="search-icon">{BiSearchAlt()}</i>
-                <input type="text" placeholder="Search..." onChange={(e)=>setSearch(e.target.value)}/>
+                <input type="text" placeholder="Search..." onChange={(e) => setSearch(e.target.value)}/>
             </div>
             <div className={"menu-items-container"}>
                 <MenuItems title={"Menu"} menuObject={MenuList}/>
