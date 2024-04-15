@@ -2,6 +2,7 @@ import React from "react";
 import {BsFillMouseFill,BsJournalAlbum} from "react-icons/bs"
 import {FaBroadcastTower,FaMicrophoneAlt,FaPodcast} from "react-icons/fa";
 import {BiPulse} from "react-icons/bi";
+import {WiCloud} from "react-icons/wi";
 
 const MenuList=[
     {
@@ -14,6 +15,11 @@ const MenuList=[
         icon: <BiPulse/>,
         name: "PlayList",
     },
+    {
+        id: 3,
+        icon: <WiCloud/>,
+        name: "WeatherPlaylist"
+    }
 ];
 
 export {MenuList}

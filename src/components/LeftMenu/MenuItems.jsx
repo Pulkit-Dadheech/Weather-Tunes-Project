@@ -19,7 +19,7 @@ function MenuItems({ title, menuObject }) {
                         const isActive = activeItem === menu.name;
                         return (
                             <li className={isActive ? "active" : ""} onClick={() => handleClick(menu.name)} key={menu.name}>
-                                <Link to = {menu.name === "PlayList"? "/home-page/playlist": "/home-page"}>
+                                <Link to = {menu.name === "PlayList"? "/home-page/playlist": menu.name === "WeatherPlaylist" ?  "/home-page/weather-playlist" : "/home-page"}>
                                     <i>{menu.icon}</i>
                                     <span>{menu.name}</span>
                                 </Link>

@@ -1,0 +1,81 @@
+.weather-playlist {
+    text-align: center;
+    background-color: transparent;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 5px;
+}
+
+.weather-playlist-title {
+    font-size: 48px;
+    /*background-color: #333333;*/
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    color: white;
+
+}
+
+.weather-song-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+}
+
+.weather-song-item {
+    background-color: grey;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s, transform 0.2s;
+    cursor: pointer;
+}
+
+.weather-song-item:hover {
+    background-color: white;
+    color: black;;
+}
+.weather-song-item{
+    font-weight: bold;
+    font-size: 20px;
+    color: white;
+    backdrop-filter: blur(8px);
+    background-color: transparent;
+    border: 1px solid white;
+}
+
+
+.weather-song-item img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 10px;
+}
+
+.weather-song-item .song-info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+
+}
+
+.weather-song-item .song-info .song-title {
+    font-weight: bold;
+}
+
+.weather-song-item .song-info .song-artist {
+    color: #666;
+}
