@@ -2,16 +2,22 @@ import axios from "axios";
 import {useContext, useEffect, useState} from "react";
 import {SongNameContext} from "../songContext";
 import "../styles/weather-playlist.css";
+import {useNavigate} from "react-router-dom";
 
 export default function WeatherFetchedTracks() {
+
+    const navigate  = useNavigate();
     const {
         setSongName,
-        weatherPlaylistData
+        weatherPlaylistData,
+        setActiveItem
     } = useContext(SongNameContext);
 
 
     const setSong = (song) => {
         setSongName(song);
+        setActiveItem('Home');
+        navigate('/home-page');
     }
 
     return (

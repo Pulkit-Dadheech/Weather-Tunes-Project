@@ -9,6 +9,7 @@ export const SongNameProvider = ({children, initialSongName}) => {
     const [weatherData,setWeatherData] = useState({});
     const [songName, setSongName] = useState(initialSongName || "bade ache lagte h");
     const [weatherPlaylistData,setWeatherPlaylistData] = useState([])
+    const [activeItem, setActiveItem] = useState(null);
 
     const getSongs = async () => {
         try {
@@ -17,7 +18,7 @@ export const SongNameProvider = ({children, initialSongName}) => {
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify({ weather_condition: weatherData.weather[0].main })
+                    body: JSON.stringify({ weather_condition: weatherData.weather[0].main })
             });
             if (!response.ok) {
                 throw new Error(`HTTP error! Status: ${response.status}`);
@@ -35,7 +36,7 @@ export const SongNameProvider = ({children, initialSongName}) => {
     }, [weatherData]);
 
     return (
-        <SongNameContext.Provider value={{songName, setSongName,weatherData,setWeatherData,city,setCity,weatherPlaylistData,setWeatherPlaylistData}}>
+        <SongNameContext.Provider value={{songName, setSongName,weatherData,setWeatherData,city,setCity,weatherPlaylistData,setWeatherPlaylistData,activeItem, setActiveItem}}>
             {children}
         </SongNameContext.Provider>
     );

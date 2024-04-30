@@ -37,8 +37,6 @@ export const FetchTracksProvider = ({children}) => {
             }
         } catch (error) {
             console.error("Error fetching data:", error);
-            // You might want to handle the error state or message here
-            // For now, I'm just returning an empty array
         }
     };
 
@@ -49,4 +47,3 @@ export const FetchTracksProvider = ({children}) => {
     );
 };
 
-// Custom hook to consume the fetchTracks function

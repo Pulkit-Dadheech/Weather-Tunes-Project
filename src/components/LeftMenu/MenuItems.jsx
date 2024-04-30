@@ -1,12 +1,13 @@
-import React, { useState } from "react";
+import React, {useContext, useState} from "react";
 import { MenuListItems } from "./MenuListItems";
 import { Link } from "react-router-dom";
+import {SongNameContext} from "../../songContext";
 
 function MenuItems({ title, menuObject }) {
-    const [activeItem, setActiveItem] = useState(null);
+    const {activeItem, setActiveItem} = useContext(SongNameContext);
+
 
     const handleClick = (name) => {
-        // Set the clicked item as active
         setActiveItem(name);
     };
 

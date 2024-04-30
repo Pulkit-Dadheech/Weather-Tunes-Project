@@ -6,6 +6,7 @@ import { Routes, Route} from "react-router-dom";
 import Playlist from "./components/PlayList";
 import React from "react";
 import WeatherFetchedTracks from "./components/WeatherFetchedTracks";
+import Navbar from "./components/Navbar";
 
 function App() {
     return (
