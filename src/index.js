@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
-import {createBrowserRouter, createRoutesFromElements, Route, RouterProvider} from "react-router-dom";
+import {createBrowserRouter, createRoutesFromElements, Navigate, Route, RouterProvider} from "react-router-dom";
 import Playlist from "./components/PlayList";
 import Login from "./pages/Login";
 import {FetchTracksProvider} from "./data/tracks";
@@ -21,6 +21,7 @@ const router = createBrowserRouter(
                 <Route path="playlist" element={<Playlist/>}/>
                 <Route path="weather-playlist" element={<WeatherFetchedTracks/>}/>
             </Route>
+            <Route path="*" element={<Navigate to="/login" replace />} />
         </>
     )
 )
