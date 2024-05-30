@@ -39,6 +39,7 @@ function LeftMenu() {
 
     const onSearch = () => {
         setCity(cityName);
+        setCity(cityName);
         fetchWeatherData();
     };
 
@@ -57,17 +58,18 @@ function LeftMenu() {
                 <div className="weather-box">
                     <div className="weather-search-box">
                         <i className="weather-icon">{WiCloud()}</i>
-                        <input type={"text"} placeholder="Enter City" onChange={(e) => setCityName(e.target.value)}/>
+                        <input type={"text"} placeholder="Enter City" value={cityName} onChange={(e) => setCityName(e.target.value)}/>
                     </div>
-                    <button onClick={onSearch} className="search-button">Search</button>
+                    <button onClick={onSearch} className="search-button">
+                        {cityName === city ? 'Shuffle Song' : 'Search'}
+                    </button>
+
                 </div>
                 {typeof weatherData.main !== "undefined" ? (
                     <div className={"weather-information"}>
                         <p>{weatherData.name}</p>
-
                         {/* Temperature Celsius  */}
                         <p>{weatherData.main.temp}°C</p>
-
                         {/* Condition (Sunny ) */}
                         <p>{weatherData.weather[0].main}</p>
                     </div>

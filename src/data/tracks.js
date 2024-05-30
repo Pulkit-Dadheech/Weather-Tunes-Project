@@ -11,6 +11,7 @@ export const FetchTracksProvider = ({children}) => {
     useEffect(() => {
         fetchTracks(songName);
     }, [songName]);
+
     const fetchTracks = async () => {
         const options = {
             method: 'GET',
