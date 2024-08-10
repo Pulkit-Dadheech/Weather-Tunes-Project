@@ -27,3 +27,5 @@ Weather Tunes is a web application that provides song recommendations based on c
 - **Scikit-Learn:** Machine learning library for Python, used here for training and evaluating the model.
 - **Flask-CORS:** Extension for handling Cross-Origin Resource Sharing (CORS) in Flask.
 - **Vercel:** Hosting and deployment platform for the Flask API.
+ # Backend Repo  
+   (https://github.com/Pulkit-Dadheech/weather-tunes-backend) 
