@@ -7,12 +7,13 @@ import {MenuItems} from "./MenuItems";
 import {TrackList} from "./TrackList";
 import {SongNameContext} from "../../songContext";
 import axios from "axios";
-
+import {redirect, useNavigate} from "react-router-dom";
 function LeftMenu() {
     const {setSongName, weatherData, setWeatherData, city, setCity} = useContext(SongNameContext);
-
     const [cityName, setCityName] = useState("");
     const [search, setSearch] = useState("");
+    const navigate = useNavigate();
+    const {setActiveItem} = useContext(SongNameContext);
 
     useEffect(() => {
         const delayDebounceFn = setTimeout(() => {
@@ -41,6 +42,8 @@ function LeftMenu() {
         setCity(cityName);
         setCity(cityName);
         fetchWeatherData();
+        setActiveItem("Recommendations")
+        navigate("/home-page/recommendations");
     };
 
     return (

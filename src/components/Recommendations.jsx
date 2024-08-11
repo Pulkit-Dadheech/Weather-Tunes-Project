@@ -4,7 +4,7 @@ import {SongNameContext} from "../songContext";
 import "../styles/weather-playlist.css";
 import {useNavigate} from "react-router-dom";
 
-export default function WeatherFetchedTracks() {
+export default function Recommendations() {
 
     const navigate  = useNavigate();
     const {
@@ -22,7 +22,7 @@ export default function WeatherFetchedTracks() {
 
     return (
         <div className="weather-playlist">
-            <h1 className="weather-playlist-title">Weather Playlist Songs</h1>
+            <h1 className="weather-playlist-title">Recommended Songs</h1>
             <ul className="weather-song-list">
                 {weatherPlaylistData.map((song, index) => (
                     <li key={index} className="weather-song-item" onClick={()=>setSong(song)}>

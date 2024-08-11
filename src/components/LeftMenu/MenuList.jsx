@@ -18,7 +18,7 @@ const MenuList=[
     {
         id: 3,
         icon: <WiCloud/>,
-        name: "WeatherPlaylist"
+        name: "Recommendations"
     }
 ];
 

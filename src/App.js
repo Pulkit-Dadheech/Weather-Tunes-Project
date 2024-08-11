@@ -5,7 +5,7 @@ import AudioPlayer from "./components/AudioPlayer";
 import { Routes, Route} from "react-router-dom";
 import Playlist from "./components/PlayList";
 import React from "react";
-import WeatherFetchedTracks from "./components/WeatherFetchedTracks";
+import Recommendations from "./components/Recommendations";
 import Navbar from "./components/Navbar";
 
 function App() {
@@ -17,7 +17,7 @@ function App() {
                     <Routes>
                         <Route path="/" element={<AudioPlayer/>}/>
                         <Route path="playlist" element={<Playlist/>}></Route>
-                        <Route path="weather-playlist" element={<WeatherFetchedTracks/>}></Route>
+                        <Route path="recommendations" element={<Recommendations/>}></Route>
                     </Routes>
                 </div>
             </div>

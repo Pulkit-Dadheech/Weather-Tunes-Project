@@ -7,7 +7,7 @@ import Playlist from "./components/PlayList";
 import Login from "./pages/Login";
 import {FetchTracksProvider} from "./data/tracks";
 import {SongNameProvider} from "./songContext";
-import WeatherFetchedTracks from "./components/WeatherFetchedTracks";
+import Recommendations from "./components/Recommendations";
 import Signup from "./pages/Signup";
 
 
@@ -19,7 +19,7 @@ const router = createBrowserRouter(
             <Route path="/signup" element={<Signup />}/>
             <Route path="/home-page" element={<App/>}>
                 <Route path="playlist" element={<Playlist/>}/>
-                <Route path="weather-playlist" element={<WeatherFetchedTracks/>}/>
+                <Route path="recommendations" element={<Recommendations/>}/>
             </Route>
             <Route path="*" element={<Navigate to="/login" replace />} />
         </>
