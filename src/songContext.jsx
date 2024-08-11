@@ -13,7 +13,7 @@ export const SongNameProvider = ({children, initialSongName}) => {
 
     const getSongs = async () => {
         try {
-            const response = await fetch('http://weather-tunes-backend.vercel.app/get_songs', {
+            const response = await fetch('https://weather-tunes-backend.onrender.com/get_songs', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
