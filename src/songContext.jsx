@@ -1,14 +1,24 @@
 import React, {createContext, useEffect, useState} from 'react';
-import {get} from "axios";
 
 // Create a context for the song name
 export const SongNameContext = createContext();
 
-export const SongNameProvider = ({children, initialSongName}) => {
-    const [city,setCity] = useState("Pune");
-    const [weatherData,setWeatherData] = useState({});
-    const [songName, setSongName] = useState(initialSongName || "bade ache lagte h");
-    const [weatherPlaylistData,setWeatherPlaylistData] = useState([])
+export const SongNameProvider = ({children}) => {
+    const [city, setCity] = useState("Pune");
+    const [weatherData, setWeatherData] = useState({});
+    const [songName, setSongName] = useState(() => {
+        // Retrieve the song name from localStorage, or use the initial value
+        const storedSongName = localStorage.getItem('songName');
+        if (storedSongName) {
+            return storedSongName;
+        } else {
+            // If no song name is found in localStorage, use the initial value and store it
+            const defaultSongName = "de mauka zindagi";
+            localStorage.setItem('songName', defaultSongName);
+            return defaultSongName;
+        }
+    });
+    const [weatherPlaylistData, setWeatherPlaylistData] = useState([]);
     const [activeItem, setActiveItem] = useState(null);
 
     const getSongs = async () => {
@@ -18,7 +28,7 @@ export const SongNameProvider = ({children, initialSongName}) => {
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                    body: JSON.stringify({ weather_condition: weatherData.weather[0].main })
+                body: JSON.stringify({ weather_condition: weatherData.weather[0].main })
             });
             if (!response.ok) {
                 throw new Error(`HTTP error! Status: ${response.status}`);
@@ -32,11 +42,16 @@ export const SongNameProvider = ({children, initialSongName}) => {
     }
 
     useEffect(() => {
-        getSongs()
+        getSongs();
     }, [weatherData]);
 
+    // Save the songName to localStorage whenever it changes
+    useEffect(() => {
+        localStorage.setItem('songName', songName);
+    }, [songName]);
+
     return (
-        <SongNameContext.Provider value={{songName, setSongName,weatherData,setWeatherData,city,setCity,weatherPlaylistData,setWeatherPlaylistData,activeItem, setActiveItem}}>
+        <SongNameContext.Provider value={{songName, setSongName, weatherData, setWeatherData, city, setCity, weatherPlaylistData, setWeatherPlaylistData, activeItem, setActiveItem}}>
             {children}
         </SongNameContext.Provider>
     );

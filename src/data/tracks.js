@@ -9,6 +9,7 @@ export const FetchTracksProvider = ({children}) => {
     const { songName} = useContext(SongNameContext);
 
     useEffect(() => {
+        if(songName)
         fetchTracks(songName);
     }, [songName]);
 

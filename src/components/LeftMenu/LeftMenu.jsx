@@ -7,7 +7,7 @@ import {MenuItems} from "./MenuItems";
 import {TrackList} from "./TrackList";
 import {SongNameContext} from "../../songContext";
 import axios from "axios";
-import {redirect, useNavigate} from "react-router-dom";
+import {useNavigate} from "react-router-dom";
 function LeftMenu() {
     const {setSongName, weatherData, setWeatherData, city, setCity} = useContext(SongNameContext);
     const [cityName, setCityName] = useState("");
@@ -17,7 +17,7 @@ function LeftMenu() {
 
     useEffect(() => {
         const delayDebounceFn = setTimeout(() => {
-            setSongName(search);
+            if(search!=="") setSongName(search);
         }, 1000);
 
         return () => clearTimeout(delayDebounceFn);
