@@ -28,4 +28,4 @@ Weather Tunes is a web application that provides song recommendations based on c
 - **Flask-CORS:** Extension for handling Cross-Origin Resource Sharing (CORS) in Flask.
 - **Vercel:** Hosting and deployment platform for the Flask API.
  ## Backend Repo  
-   https://github.com/Pulkit-Dadheech/weather-tunes-backend
+   [https://github.com/Pulkit-Dadheech/weather-tunes-backend](https://github.com/Pulkit-Dadheech/Weather-Tunes-Backend)
