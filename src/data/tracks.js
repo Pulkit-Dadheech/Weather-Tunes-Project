@@ -16,7 +16,7 @@ export const FetchTracksProvider = ({children}) => {
     const fetchTracks = async () => {
         const options = {
             method: 'GET',
-            url: 'https://saavn.dev/api/search/songs',
+            url: 'https://jiosaavn-api-unofficial-ten.vercel.app/api/search/songs',
             params: {query: songName}
         };
         try {
