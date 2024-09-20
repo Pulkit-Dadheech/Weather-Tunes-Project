@@ -79,3 +79,16 @@
 .weather-song-item .song-info .song-artist {
     color: #666;
 }
+@media screen and (max-width: 550px) {
+    .weather-playlist{
+        width: auto;
+    }
+    .weather-playlist-title{
+        font-size: large;
+        overflow: clip;
+        box-sizing: border-box;
+    }
+    .weather-song-item{
+        font-size: large;
+    }
+}
