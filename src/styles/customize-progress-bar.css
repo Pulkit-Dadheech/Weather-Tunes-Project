@@ -1,12 +1,5 @@
-/* =========================
-Custom Input range
-=============================*/
-
-/* Input range - chrome and safari */
-
 input[type="range"] {
   --range-progress: 0;
-
   -webkit-appearance: none;
   position: relative;
   background:#ccc;

@@ -12,9 +12,10 @@
     left: 0;
     right: 0;
     bottom:0;
-    background: var(--main-background);
-    background-size: cover;
-    filter: var(--main-background-image-filter);
+    /*background: var(--main-background);*/
+    /*background-size: cover;*/
+    /*filter: var(--main-background-image-filter);*/
+    background-color: black;
     z-index: -1;
 }
 

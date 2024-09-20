@@ -7,6 +7,7 @@ import Playlist from "./components/PlayList";
 import React from "react";
 import Recommendations from "./components/Recommendations";
 import Navbar from "./components/Navbar";
+import '../src/styles/customize-progress-bar.css'
 
 function App() {
     return (
